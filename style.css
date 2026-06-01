@@ -1,0 +1,517 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000000;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse at 20% 20%, rgba(0, 100, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(0, 150, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(0, 50, 150, 0.05) 0%, transparent 70%),
+        linear-gradient(180deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+    z-index: -1;
+    animation: backgroundPulse 8s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #0066ff, #00aaff);
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0, 102, 255, 0.5), 0 0 60px rgba(0, 102, 255, 0.3);
+    animation: logoGlow 2s ease-in-out infinite;
+}
+
+@keyframes logoGlow {
+    0%, 100% {
+        box-shadow: 0 0 30px rgba(0, 102, 255, 0.5), 0 0 60px rgba(0, 102, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 50px rgba(0, 102, 255, 0.7), 0 0 100px rgba(0, 102, 255, 0.4);
+    }
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #0066ff, #00aaff, #0066ff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+    text-shadow: 0 0 30px rgba(0, 102, 255, 0.3);
+}
+
+@keyframes shimmer {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #4a90e2;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background: linear-gradient(135deg, rgba(10, 10, 20, 0.9), rgba(20, 20, 40, 0.8));
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: fadeInUp 0.8s ease-out;
+    animation-fill-mode: both;
+}
+
+.card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 102, 255, 0.5);
+    box-shadow: 0 20px 60px rgba(0, 102, 255, 0.2), 0 0 40px rgba(0, 102, 255, 0.1);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 102, 255, 0.1);
+}
+
+.card-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.crash-icon {
+    background: linear-gradient(135deg, #ff3366, #ff6699);
+    box-shadow: 0 0 20px rgba(255, 51, 102, 0.4);
+}
+
+.boom-icon {
+    background: linear-gradient(135deg, #0066ff, #00aaff);
+    box-shadow: 0 0 20px rgba(0, 102, 255, 0.4);
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.price-container {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    border: 1px solid rgba(0, 102, 255, 0.1);
+}
+
+.price {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #00aaff;
+    text-shadow: 0 0 20px rgba(0, 170, 255, 0.5), 0 0 40px rgba(0, 170, 255, 0.3);
+    animation: priceGlow 2s ease-in-out infinite;
+    font-family: 'Courier New', monospace;
+}
+
+@keyframes priceGlow {
+    0%, 100% {
+        text-shadow: 0 0 20px rgba(0, 170, 255, 0.5), 0 0 40px rgba(0, 170, 255, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 30px rgba(0, 170, 255, 0.7), 0 0 60px rgba(0, 170, 255, 0.4);
+    }
+}
+
+.price-label {
+    font-size: 0.85rem;
+    color: #4a90e2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: #4a90e2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 15px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input::placeholder {
+    color: rgba(74, 144, 226, 0.5);
+}
+
+input:focus {
+    border-color: #0066ff;
+    box-shadow: 0 0 20px rgba(0, 102, 255, 0.3), inset 0 0 10px rgba(0, 102, 255, 0.1);
+}
+
+button {
+    width: 100%;
+    padding: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #0066ff, #00aaff);
+    border: none;
+    border-radius: 15px;
+    color: #ffffff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 102, 255, 0.5);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.btn-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: btnShine 3s infinite;
+}
+
+@keyframes btnShine {
+    0% {
+        left: -100%;
+    }
+    50%, 100% {
+        left: 100%;
+    }
+}
+
+#alertScreen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 0, 40, 0.95));
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: pointer;
+    animation: alertFadeIn 0.3s ease-out;
+}
+
+@keyframes alertFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.alert-content {
+    text-align: center;
+    animation: alertPulse 0.5s ease-in-out infinite;
+}
+
+@keyframes alertPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.alert-icon {
+    font-size: 8rem;
+    margin-bottom: 30px;
+    animation: iconRotate 1s ease-in-out infinite;
+}
+
+@keyframes iconRotate {
+    0%, 100% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+}
+
+.alert-text {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #ff3366;
+    text-shadow: 0 0 30px rgba(255, 51, 102, 0.8), 0 0 60px rgba(255, 51, 102, 0.5);
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+.alert-subtext {
+    font-size: 1.2rem;
+    color: #4a90e2;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+    }
+    
+    .header {
+        margin-bottom: 30px;
+    }
+    
+    .header h1 {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+    
+    .subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+    
+    .logo-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .cards-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .card {
+        padding: 20px;
+        border-radius: 15px;
+    }
+    
+    .card-header {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+    }
+    
+    .card-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+    }
+    
+    .card h2 {
+        font-size: 1.2rem;
+    }
+    
+    .price-container {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .price {
+        font-size: 2.5rem;
+    }
+    
+    .price-label {
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+    }
+    
+    .input-group {
+        margin-bottom: 15px;
+    }
+    
+    .input-group label {
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+    }
+    
+    input {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+    
+    button {
+        padding: 16px;
+        font-size: 1rem;
+        letter-spacing: 1.5px;
+    }
+    
+    .alert-icon {
+        font-size: 5rem;
+        margin-bottom: 20px;
+    }
+    
+    .alert-text {
+        font-size: 2rem;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
+    }
+    
+    .alert-subtext {
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .logo {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .subtitle {
+        font-size: 0.7rem;
+    }
+    
+    .card {
+        padding: 15px;
+    }
+    
+    .price {
+        font-size: 2rem;
+    }
+    
+    .alert-text {
+        font-size: 1.5rem;
+    }
+}

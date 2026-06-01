@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desy Synthetic Alert</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="background-overlay"></div>
+
+<div class="container">
+
+    <div class="header">
+        <div class="logo">
+            <div class="logo-icon"></div>
+            <h1>Desy Synthetic Alert</h1>
+        </div>
+        <p class="subtitle">Advanced Price Monitoring System</p>
+    </div>
+
+    <div class="cards-container">
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon crash-icon"></div>
+                <h2>Crash 300</h2>
+            </div>
+
+            <div class="price-container">
+                <div class="price" id="crashPrice">0.00</div>
+                <div class="price-label">Current Price</div>
+            </div>
+
+            <div class="input-group">
+                <label>Upper Alert</label>
+                <input type="number" id="crashUpper" placeholder="Enter upper threshold">
+            </div>
+
+            <div class="input-group">
+                <label>Lower Alert</label>
+                <input type="number" id="crashLower" placeholder="Enter lower threshold">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon boom-icon"></div>
+                <h2>Boom 1000</h2>
+            </div>
+
+            <div class="price-container">
+                <div class="price" id="boomPrice">0.00</div>
+                <div class="price-label">Current Price</div>
+            </div>
+
+            <div class="input-group">
+                <label>Upper Alert</label>
+                <input type="number" id="boomUpper" placeholder="Enter upper threshold">
+            </div>
+
+            <div class="input-group">
+                <label>Lower Alert</label>
+                <input type="number" id="boomLower" placeholder="Enter lower threshold">
+            </div>
+        </div>
+
+    </div>
+
+    <button id="startBtn">
+        <span class="btn-text">Start Monitoring</span>
+        <span class="btn-glow"></span>
+    </button>
+
+</div>
+
+<audio id="alarm">
+    <source src="alarm.mp3" type="audio/mpeg">
+</audio>
+
+<div id="alertScreen">
+    <div class="alert-content">
+        <div class="alert-icon">⚠</div>
+        <div class="alert-text">PRICE LEVEL HIT</div>
+        <div class="alert-subtext">Click to dismiss</div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
